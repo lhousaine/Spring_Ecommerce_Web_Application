@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"
+    />
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"
+    />
+</head>
+<body>
+<header>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Products</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{managerProduits}">Accueil</a></li>
+            <li><a th:href="@{managerProduits}">Les Produits </a></li>
+            <li><a th:href="@{touslesclients}">Nos Clients </a></li>
+           <!-- <li><a th:href="@{managerProduits}">Les Commandes Passer </a></li>-->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a th:href="@{/login?logout}"></a>Log out</li>
+        </ul>
+    </div>
+</nav>
+</header>
+<section layout:fragment="content"></section>
+<footer>
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">A propos de Nous</a>
+            </div>
+        </div>
+    </nav>
+</footer>
+</body>
+</html>

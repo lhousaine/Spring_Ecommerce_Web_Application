@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="templateClient">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content" class="botMarging">
+<div class="container-fluid">
+    <div class="row col-md-offset-2">
+        <div class="col-md-7">
+        <form class="form-inline" th:action="@{WebProducts}" method="get">
+            <div class="form-group">
+            <label>Rechercher un produit : </label>
+            <input class="form-control" type="text" name="motCle" th:value="${motCle}" />
+            </div>
+            <button class="btn  btn-success">Chercher</button>
+        </form>
+        </div>
+        <div class="col-md-3" >
+            <form th:action="@{voirPanier}" method="get">
+                <button class="btn btn-primary">Envoyer Panier</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+<div th:each="p:${listProduits}" class="col-md-3 inblock">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Product <span th:text="${p.id}"></span></div>
+        <div class="panel-body">
+            <p><b>Nom de Produit :</b><span th:text="${p.nom}"></span></p>
+            <p><b>Une petit description du Produit :</b><span th:text="${p.description}"></span></p>
+            <p> <b>Prix de Produit :</b><span th:text="${p.prix}"></span>$</p>
+            <p> <b>Quantité disponible :</b><span th:text="${p.qteProduit}"></span>$</p>
+            <a class="btn btn-block btn-info" th:href="@{ajoutPanier(idProduit=${p.id})}">Acheter</a>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="templateClient">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content" class="botMarging">
+    <div class="container">
+        <form th:action="@{ConfirmerPanier}" method="get">
+            <button class="btn btn-primary">Confirmer Panier et Passer la commande</button>
+        </form>
+        <h3>Mon panier</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th><th>Nom</th><th>Description</th><th>Prix</th><th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="p:${Produits}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.nom}"></td>
+                <td th:text="${p.description}"></td>
+                <td th:text="${p.prix}"></td>
+                <td><a onclick="return confirm('Etes vous sûr ?')" th:href="@{delete(id=${p.id})}">Supprimer Produit</a></td>
+            </tr>
+            <tr><td>Le totale a payer est </td><td></td><td></td><td><span th:text="${somme}"></span></td></tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</body>
+</html>

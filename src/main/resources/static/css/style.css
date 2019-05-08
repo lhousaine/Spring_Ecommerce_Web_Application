@@ -1,0 +1,16 @@
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.spacer{
+    margin-top:100px;
+}
+.inblock{
+    display: inline-block;
+}
+.red{
+    color:#f00;
+}
+.botMarging{
+    margin-bottom: 100px;
+}

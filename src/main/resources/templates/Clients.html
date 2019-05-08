@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="templateAdmin">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container" >
+        <form class="form-inline" th:action="@{touslesclients}" method="get">
+                <div class="form-group">
+                    <label>Mot Clé : </label>
+                    <input class="form-control"  type="text" name="motCle" th:value="${motCle}" />
+                </div>
+                <button class="btn btn-default">Chercher</button>
+            </form>
+        <h3>Liste des produits</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom de Client</th><th>Email de Client </th><th>Addresse de Client</th><th></th><th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c:${listClients}">
+                <td th:text="${c.nom}"></td>
+                <td th:text="${c.email}"></td>
+                <td th:text="${c.adresse.pays+c.adresse.ville+c.adresse.rue+c.adresse.zipecode}"></td>
+                <td><a onclick="return confirm('Etes vous de supprimer Ce Client ?')" th:href="@{SupprimerClient(id=${c.email},page=${pageCourante},size=${size},motCle=${motCle})}">Supprimer</a></td>
+                <td><a th:href="@{editClient(id=${c.email})}">Modifier</a></td>
+            </tr>
+            </tbody>
+        </table>
+        <ul class="nav nav-pills">
+            <!-- th:class="${pageCourante}==${status.index}?'active':''"-->
+            <li th:each="pa,status:${pages}">
+                <a th:href="@{touslesclients(page=${status.index},size=${size},motCle=${motCle})}" th:text="${status.index}"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

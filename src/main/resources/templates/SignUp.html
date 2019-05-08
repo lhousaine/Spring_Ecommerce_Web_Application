@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Authentification</title>
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/bootstrap.css"
+          th:href="@{/css/bootstrap.css}"
+    />
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}"
+    />
+</head>
+<body>
+<div class="container">
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Creer Nouveau Client Compte</div>
+        <div class="panel-body">
+            <form th:action="@{/signup}" method="post">
+                <div class="form-group">
+                    <label>Nom :</label>
+                    <input class="form-control" type="text" name="nom"/>
+                </div>
+                <div class="form-group">
+                    <label>Email :</label>
+                    <input class="form-control" type="text" name="email"/>
+                </div>
+                <div class="form-group">
+                    <label>Compte Bancaire  :</label>
+                    <input class="form-control" type="text" name="compte_bancaire"/>
+                </div>
+                <div class="form-inline">
+                    <label>Pays</label><input class="form-control" type="text" name="pays"/>
+                    <label>Ville</label><input class="form-control" type="text" name="ville"/>
+                    <label>Rue</label><input class="form-control" type="text" name="rue"/>
+                    <label>Zip Code</label><input class="form-control" type="text" name="zipecode"/>
+                </div>
+                <div class="form-group">
+                    <label>Username :</label>
+                    <input class="form-control" type="text" name="username"/>
+                </div>
+                <div class="form-group">
+                    <label>Password :</label>
+                    <input class="form-control" type="password" name="password"/>
+                </div>
+                <button class="btn btn-block btn-success" type="submit">Se Connecter</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</body>
